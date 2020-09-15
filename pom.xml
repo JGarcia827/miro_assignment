@@ -59,6 +59,13 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>6.1.5.Final</version>
 		</dependency>
+
+		<!-- Provide Swagger annotations -->
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>1.6.2</version>
+		</dependency>
 		
 		<!-- Test framework (JUnit5) -->
 		<dependency>
