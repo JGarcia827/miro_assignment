@@ -66,6 +66,13 @@
 			<artifactId>swagger-annotations</artifactId>
 			<version>1.6.2</version>
 		</dependency>
+
+		<!-- Used in the evaluator filter for logback -->
+		<dependency>
+			<groupId>org.codehaus.janino</groupId>
+			<artifactId>janino</artifactId>
+			<version>3.1.2</version>
+		</dependency>
 		
 		<!-- Test framework (JUnit5) -->
 		<dependency>
