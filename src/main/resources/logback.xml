@@ -1,0 +1,39 @@
+<configuration>
+
+  <property name="HOME_LOG" value="logs" />
+
+  <appender name="FILE-LOGGING_REST" class="ch.qos.logback.core.FileAppender">
+    <file>${HOME_LOG}/rest.log</file>
+
+    <!-- This filter will result in only logging REST requests and responses -->
+    <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+      <evaluator name="myEval">
+        <expression>logger.contains("org.zalando.logbook.Logbook")</expression>
+      </evaluator>
+      <OnMismatch>DENY</OnMismatch>
+      <OnMatch>ACCEPT</OnMatch>
+    </filter>
+
+    <encoder>
+      <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- Console logging -->
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+        <pattern>%d [%thread] %-5level  %logger{35} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+
+  <logger name="com.miro.assignment" level="debug" additivity="true">
+    <appender-ref ref="FILE-LOGGING_REST" />
+  </logger>
+
+  <root level="info">
+    <appender-ref ref="FILE-LOGGING_REST" />
+    <appender-ref ref="STDOUT" />
+  </root>
+
+</configuration>
